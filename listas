@@ -373,6 +373,16 @@ public:
             ptr2 = n
             n = nNext
     }
+     if (n = NULL){
+        while(m!=NULL){
+            Lista3->push_back(m->getDato());
+            m = m->getNext();
+            
+        }
+        else{
+            while(n!=NULL){
+                Lista3->push_back(n->getDato());
+                n=n->getNext();
 };
 
 
