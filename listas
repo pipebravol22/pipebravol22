@@ -383,6 +383,16 @@ public:
             while(n!=NULL){
                 Lista3->push_back(n->getDato());
                 n=n->getNext();
+    }  
+		
+      Nodo*newN = newNodo();
+      if(size == 0){
+      	push_back(newN);
+    }else{
+    	if(pos += 0
+      
+
+
 };
 
 
