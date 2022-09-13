@@ -1,0 +1,105 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void hola(int n) {
+if(n > 0){
+    if(n == 1){
+	    cout << "Hola"  <<"\t" <<  n-1 << "\n";
+    }else{
+	    hola(n-1);
+	    cout << "Hola" << "\t" << n-1 << "\n";
+	    
+	
+        }
+    }
+}
+int min(vector<int> v) {
+int min = v[0];
+for (size_t i = 1; i < v.size(); i++)
+{
+if (v[i] < min) {
+min = v[i];
+}
+}
+return min;
+}
+
+
+int min_recursivo(vector<int> v){
+    if (v.size() == 1){
+        return v.at(0);
+    }
+    if(v.size() > 1){
+        int aux = v.at(0);
+        v.erase(v.begin());
+        cout << "el tamaño es: " << v.size() << '\n';
+        cout << "el dato es: "<< aux << '\n';
+        for (int num: v){
+            cout << num << " ";
+        }
+        cout << "\n";
+        if(v.size() > 1){
+            if(aux > min_recursivo(v)){
+                aux = min_recursivo(v);
+            }
+        }
+        else{
+            return aux;
+        }
+        
+    }
+}
+
+int min_r(vector<int> v){
+    int min;
+    if (v.size() == 1){
+        min = v.at(0);
+        cout << "El mímino es:" << min<< "\n";
+        return min;
+    }
+    else{
+    if(v.size() > 1){
+        int aux1 = v.at(0);
+        int aux2 = v.at(1);
+       
+        //cout << "el tamaño es: " << v.size() << '\n';
+        //cout << "el dato 1 es: "<< aux1 << '\n';
+        //cout << "el dato 2 es: "<< aux2 << '\n';
+        //for (int num: v){
+        //    cout << num << " ";
+        //}
+        cout << "\n";
+        if( aux1 >= aux2){
+            
+            v.erase(v.begin());
+            min = aux2;
+            min_r(v);
+            
+        }
+        if( aux2 > aux1){
+            v.erase(v.begin()+1);
+            min = aux1;
+            min_r(v);
+        }
+        
+    }
+
+    }
+    //cout << min << '\n';
+    return min;
+    
+}
+
+
+int main() {
+    vector<int> jaime{8,10,72,123,656};
+    
+    
+    //hola(3);
+    
+    //cout <<"El minimo de el vector es: "<< min(jaime) << '\n';
+    min_r(jaime);
+    return 0;
+}
